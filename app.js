@@ -26,29 +26,20 @@
   ];
 
   let activeFilter = "matcha";
-  let milk = "whole";
-  let temp = "hot";
 
   const menuListEl = document.getElementById("menu-list");
   const menuEmptyEl = document.getElementById("menu-empty");
   const menuWipEl = document.getElementById("menu-wip");
   const menuHintEl = document.getElementById("menu-hint");
   const hintCategoryEl = document.getElementById("hint-category");
-  const hintDrinkCtxEl = document.getElementById("hint-drink-ctx");
-  const hintMilkEl = document.getElementById("hint-milk");
-  const hintTempEl = document.getElementById("hint-temp");
-  const pinBarEl = document.getElementById("pin-bar");
+  const drinkNotesEl = document.getElementById("drink-notes");
 
   function renderHint() {
     hintCategoryEl.textContent = activeFilter;
-    hintMilkEl.textContent = milk;
-    hintTempEl.textContent = temp;
 
     const treats = activeFilter === "treats";
-    hintDrinkCtxEl.classList.toggle("hidden", treats);
-    hintDrinkCtxEl.setAttribute("aria-hidden", treats ? "true" : "false");
-    pinBarEl.classList.toggle("hidden", treats);
-    pinBarEl.setAttribute("aria-hidden", treats ? "true" : "false");
+    drinkNotesEl.classList.toggle("hidden", treats);
+    drinkNotesEl.setAttribute("aria-hidden", treats ? "true" : "false");
   }
 
   function renderMenu() {
@@ -79,15 +70,6 @@
       const li = document.createElement("li");
       li.className = "menu-card";
 
-      const tempNote =
-        item.category === "treats"
-          ? ""
-          : temp === "iced"
-            ? "best iced"
-            : "best hot";
-
-      const milkNote = item.category === "treats" ? "" : milk + " milk";
-
       const row = document.createElement("div");
       row.className = "menu-card__row";
       row.innerHTML =
@@ -102,20 +84,6 @@
 
       const tagsWrap = document.createElement("div");
       tagsWrap.className = "menu-card__tags";
-
-      if (milkNote) {
-        const t1 = document.createElement("span");
-        t1.className = "menu-card__tag";
-        t1.textContent = milkNote;
-        tagsWrap.appendChild(t1);
-      }
-
-      if (tempNote) {
-        const t2 = document.createElement("span");
-        t2.className = "menu-card__tag menu-card__tag--sky";
-        t2.textContent = tempNote;
-        tagsWrap.appendChild(t2);
-      }
 
       item.tags.forEach(function (tag) {
         const t = document.createElement("span");
@@ -142,28 +110,6 @@
     btn.addEventListener("click", function () {
       activeFilter = btn.getAttribute("data-filter");
       document.querySelectorAll(".filter-btn").forEach(function (b) {
-        b.classList.toggle("is-active", b === btn);
-      });
-      renderHint();
-      renderMenu();
-    });
-  });
-
-  document.querySelectorAll(".seg--milk .seg__btn").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      milk = btn.getAttribute("data-milk");
-      document.querySelectorAll(".seg--milk .seg__btn").forEach(function (b) {
-        b.classList.toggle("is-active", b === btn);
-      });
-      renderHint();
-      renderMenu();
-    });
-  });
-
-  document.querySelectorAll(".seg--temp .seg__btn").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      temp = btn.getAttribute("data-temp");
-      document.querySelectorAll(".seg--temp .seg__btn").forEach(function (b) {
         b.classList.toggle("is-active", b === btn);
       });
       renderHint();
