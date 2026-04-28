@@ -105,7 +105,7 @@ body {
 }
 
 .site-header {
-  padding: 1.35rem 1rem 1.15rem;
+  padding: 1.25rem 1rem 0.85rem;
 }
 
 /* Title + pixel scene on one row; wraps on narrow viewports */
@@ -270,23 +270,221 @@ body {
   color: var(--ink-soft);
 }
 
-/* Exchange rate line — playful “payment” */
-.exchange-rate-bar {
+/* Soft pastel bulletin — date + exchange */
+.bulletin-board {
   max-width: 520px;
   margin: 0 auto;
-  padding: 0.85rem 1rem 0;
-  font-size: 0.88rem;
-  line-height: 1.5;
-  color: rgba(220, 214, 205, 0.88);
+  padding: 0.25rem 1rem 1rem;
 }
 
-.exchange-rate-bar__label {
+.bulletin-board__wrap {
+  position: relative;
+  margin: 0 auto;
+  max-width: 520px;
+}
+
+.bulletin-deco {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.84;
+  filter: drop-shadow(0 1px 2px rgba(45, 38, 35, 0.14));
+}
+
+.bulletin-deco svg {
   display: block;
-  margin-bottom: 0.35rem;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.bulletin-deco--nw {
+  width: 40px;
+  height: 48px;
+  left: -7px;
+  top: -12px;
+}
+
+.bulletin-deco--ne {
+  width: 42px;
+  height: 42px;
+  right: -9px;
+  top: -10px;
+}
+
+.bulletin-deco--sw {
+  width: 46px;
+  height: 34px;
+  left: -6px;
+  bottom: -8px;
+}
+
+.bulletin-deco--se {
+  width: 42px;
+  height: 34px;
+  right: -8px;
+  bottom: -9px;
+}
+
+/* Mushroom perched on the bottom edge of the board */
+.bulletin-deco--edge-mushroom {
+  width: 48px;
+  height: 56px;
+  left: 50%;
+  bottom: -14px;
+  margin-left: -24px;
+  z-index: 2;
+  opacity: 0.92;
+  filter: drop-shadow(0 2px 3px rgba(45, 38, 35, 0.18));
+}
+
+.bulletin-board__panel {
+  position: relative;
+  z-index: 1;
+  padding: 0.55rem 0.55rem 0.62rem;
+  border-radius: calc(var(--radius) - 2px);
+  border: 2px dashed rgba(200, 178, 194, 0.65);
+  background-color: rgba(244, 239, 246, 0.82);
+  box-shadow:
+    0 6px 20px rgba(95, 143, 98, 0.07),
+    0 2px 8px rgba(232, 164, 184, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+@media (max-width: 380px) {
+  .bulletin-deco {
+    opacity: 0.72;
+  }
+
+  .bulletin-deco--nw {
+    left: -3px;
+    top: -9px;
+  }
+
+  .bulletin-deco--ne {
+    right: -4px;
+    top: -7px;
+  }
+
+  .bulletin-deco--sw {
+    left: -3px;
+    bottom: -6px;
+  }
+
+  .bulletin-deco--se {
+    right: -4px;
+    bottom: -6px;
+  }
+
+  .bulletin-deco--edge-mushroom {
+    width: 42px;
+    height: 49px;
+    margin-left: -21px;
+    bottom: -11px;
+    opacity: 0.88;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .bulletin-deco {
+    opacity: 0.62;
+  }
+
+  .bulletin-deco--edge-mushroom {
+    opacity: 0.72;
+  }
+}
+
+
+.bulletin-board__notes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.55rem 0.65rem;
+}
+
+.bul-note {
+  position: relative;
+  flex: 1 1 11rem;
+  max-width: 15rem;
+  margin: 0;
+  padding: 0.58rem 0.72rem 0.62rem;
+  border-radius: 4px;
+  border: 1px solid rgba(183, 168, 156, 0.45);
+  background: rgba(253, 251, 247, 0.97);
+  box-shadow:
+    2px 3px 0 rgba(157, 140, 160, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+.bul-note--date {
+  transform: rotate(-1.2deg);
+}
+
+.bul-note--exchange {
+  transform: rotate(0.9deg);
+}
+
+.bul-note__pin {
+  position: absolute;
+  top: -0.32rem;
+  left: 50%;
+  margin-left: -6px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #edc4d4;
+  border: 2px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 1px 3px rgba(157, 120, 140, 0.25);
+}
+
+.bul-note--exchange .bul-note__pin {
+  background: #b8d8e8;
+}
+
+.bul-note__title {
+  margin: 0 0 0.28rem;
   font-family: var(--font-pixel);
-  font-size: 1.05rem;
+  font-size: 0.98rem;
+  font-weight: normal;
   letter-spacing: 0.06em;
-  color: var(--sky);
+  color: var(--matcha-deep);
+  text-transform: lowercase;
+}
+
+.bul-note--date .bul-note__title {
+  color: var(--sakura-deep);
+}
+
+.bul-note--exchange .bul-note__title {
+  color: var(--sky-deep);
+}
+
+.bul-note__when {
+  display: block;
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.93rem;
+  font-weight: 700;
+  line-height: 1.32;
+  color: var(--ink);
+}
+
+.bul-note__body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  line-height: 1.48;
+  color: var(--ink-soft);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bul-note--date,
+  .bul-note--exchange {
+    transform: none;
+  }
 }
 
 /* Category filters */
@@ -295,7 +493,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.55rem;
-  padding: 1rem 0.85rem 0.5rem;
+  padding: 0.75rem 0.85rem 0.45rem;
   max-width: 560px;
   margin: 0 auto;
 }
