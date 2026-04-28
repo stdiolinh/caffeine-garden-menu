@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#252b27" />
+    <meta name="description" content="Caffeine Garden — a cozy cafe menu" />
+    <title>Caffeine Garden · menu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-pattern" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <div class="brand">
+        <span class="brand__petals" aria-hidden="true">❀</span>
+        <div class="brand__text">
+          <h1 class="brand__title">caffeine garden</h1>
+          <p class="brand__tag">by jess, shir, linh, and justin</p>
+        </div>
+        <span class="brand__petals" aria-hidden="true">❀</span>
+      </div>
+      <figure class="hero-scene">
+        <img
+          class="hero-scene__img"
+          src="assets/garden-scene.png"
+          width="512"
+          height="512"
+          alt="Pixel art: wooden bridge over a stream in a green garden, black cat on the bridge"
+          decoding="async"
+          fetchpriority="high"
+        />
+      </figure>
+    </header>
+
+    <section class="pin-bar" aria-label="Drink preferences">
+      <div class="pin-bar__inner">
+        <div class="pin-group">
+          <span class="pin-label">milk</span>
+          <div class="seg seg--milk" role="group" aria-label="Milk choice">
+            <button type="button" class="seg__btn is-active" data-milk="whole">whole</button>
+            <button type="button" class="seg__btn" data-milk="oat">oat</button>
+            <button type="button" class="seg__btn" data-milk="soy">soy</button>
+          </div>
+        </div>
+        <div class="pin-group">
+          <span class="pin-label">serve</span>
+          <div class="seg seg--temp" role="group" aria-label="Temperature">
+            <button type="button" class="seg__btn is-active" data-temp="hot">hot</button>
+            <button type="button" class="seg__btn" data-temp="iced">iced</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <p class="tender-bar" role="note">
+      <span class="tender-bar__label">tender</span>
+      no prices — pay in pocket lint, one (1) mushroom cap, a sincere compliment, or spare stardrops
+      (imaginary gold also ok)
+    </p>
+
+    <nav class="filters" aria-label="Menu categories">
+      <button type="button" class="filter-btn is-active" data-filter="matcha">
+        <span class="filter-btn__icon" aria-hidden="true">🍵</span>
+        matcha
+      </button>
+      <button type="button" class="filter-btn" data-filter="coffee">
+        <span class="filter-btn__icon" aria-hidden="true">☕</span>
+        coffee
+      </button>
+      <button type="button" class="filter-btn" data-filter="treats">
+        <span class="filter-btn__icon" aria-hidden="true">🍡</span>
+        treats
+      </button>
+    </nav>
+
+    <main class="menu-main">
+      <p class="menu-hint" id="menu-hint">
+        showing <strong id="hint-category">matcha</strong> ·
+        <strong id="hint-milk">whole</strong> milk ·
+        <strong id="hint-temp">hot</strong>
+      </p>
+      <ul class="menu-list" id="menu-list"></ul>
+      <p class="menu-wip hidden" id="menu-wip">
+        under construction, we're sipping on it
+      </p>
+      <p class="menu-empty hidden" id="menu-empty">nothing here yet — pick another tab ✿</p>
+    </main>
+
+    <section class="playlist-section" aria-labelledby="playlist-heading">
+      <h2 id="playlist-heading" class="section-title">soundtrack</h2>
+      <p class="section-lede">
+        café sounds for the garden — open in Spotify if the player is shy
+      </p>
+      <div class="playlist-shell">
+        <iframe
+          class="playlist-iframe"
+          title="Spotify: caffeine garden playlist"
+          src="https://open.spotify.com/embed/playlist/0fWz31nu36tnFVcZYimDHk?utm_source=generator&amp;theme=0"
+          width="100%"
+          frameborder="0"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+        ></iframe>
+      </div>
+      <p class="playlist-link">
+        <a
+          class="playlist-link__a"
+          href="https://open.spotify.com/playlist/0fWz31nu36tnFVcZYimDHk?si=Da6vyZnvT6uvVXSWxAtYMQ&amp;pi=2rd0luTgTgS9b"
+          rel="noopener noreferrer"
+          target="_blank"
+          >open playlist in Spotify</a
+        >
+      </p>
+    </section>
+
+    <footer class="site-footer">
+      <p>thanks for visiting · open randomly in spirit</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
