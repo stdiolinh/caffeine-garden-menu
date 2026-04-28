@@ -71,7 +71,17 @@ body {
 
 .site-header {
   padding: 1.35rem 1rem 1.15rem;
-  text-align: center;
+}
+
+/* Title + pixel scene on one row; wraps on narrow viewports */
+.site-header__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem 1.25rem;
+  max-width: min(36rem, 100%);
+  margin: 0 auto;
 }
 
 .brand {
@@ -80,6 +90,8 @@ body {
   gap: 0.65rem;
   flex-wrap: wrap;
   justify-content: center;
+  max-width: 100%;
+  text-align: center;
 }
 
 .brand__petals {
@@ -105,11 +117,13 @@ body {
   color: rgba(220, 214, 205, 0.82);
 }
 
-/* Pixel scene — below title, scales on narrow screens */
+/* Pixel scene — thumb tucked beside title */
 .hero-scene {
-  margin: 1.1rem auto 0;
-  max-width: min(22rem, 100%);
-  padding: 0 0.5rem;
+  margin: 0;
+  flex: 0 0 auto;
+  width: clamp(5.25rem, 22vw, 7.25rem);
+  max-width: 100%;
+  padding: 0;
 }
 
 .hero-scene__img {
@@ -221,8 +235,8 @@ body {
   color: #121512;
 }
 
-/* Tender line — playful “payment” */
-.tender-bar {
+/* Exchange rate line — playful “payment” */
+.exchange-rate-bar {
   max-width: 520px;
   margin: 0 auto;
   padding: 0.85rem 1rem 0;
@@ -231,7 +245,7 @@ body {
   color: rgba(220, 214, 205, 0.88);
 }
 
-.tender-bar__label {
+.exchange-rate-bar__label {
   display: block;
   margin-bottom: 0.35rem;
   font-family: var(--font-pixel);

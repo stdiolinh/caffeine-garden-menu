@@ -18,28 +18,30 @@
     <div class="bg-pattern" aria-hidden="true"></div>
 
     <header class="site-header">
-      <div class="brand">
-        <span class="brand__petals" aria-hidden="true">❀</span>
-        <div class="brand__text">
-          <h1 class="brand__title">caffeine garden</h1>
-          <p class="brand__tag">by jess, shir, linh, and justin</p>
+      <div class="site-header__row">
+        <div class="brand">
+          <span class="brand__petals" aria-hidden="true">❀</span>
+          <div class="brand__text">
+            <h1 class="brand__title">caffeine garden</h1>
+            <p class="brand__tag">by jess, shir, linh, and justin</p>
+          </div>
+          <span class="brand__petals" aria-hidden="true">❀</span>
         </div>
-        <span class="brand__petals" aria-hidden="true">❀</span>
+        <figure class="hero-scene">
+          <img
+            class="hero-scene__img"
+            src="assets/garden-scene.png"
+            width="512"
+            height="512"
+            alt="Pixel art: wooden bridge over a stream in a green garden, black cat on the bridge"
+            decoding="async"
+            fetchpriority="high"
+          />
+        </figure>
       </div>
-      <figure class="hero-scene">
-        <img
-          class="hero-scene__img"
-          src="assets/garden-scene.png"
-          width="512"
-          height="512"
-          alt="Pixel art: wooden bridge over a stream in a green garden, black cat on the bridge"
-          decoding="async"
-          fetchpriority="high"
-        />
-      </figure>
     </header>
 
-    <section class="pin-bar" aria-label="Drink preferences">
+    <section class="pin-bar" id="pin-bar" aria-label="Drink preferences">
       <div class="pin-bar__inner">
         <div class="pin-group">
           <span class="pin-label">milk</span>
@@ -59,8 +61,8 @@
       </div>
     </section>
 
-    <p class="tender-bar" role="note">
-      <span class="tender-bar__label">tender</span>
+    <p class="exchange-rate-bar" role="note">
+      <span class="exchange-rate-bar__label">exchange rate</span>
       no prices — pay in pocket lint, one (1) mushroom cap, a sincere compliment, or spare stardrops
       (imaginary gold also ok)
     </p>
@@ -82,9 +84,7 @@
 
     <main class="menu-main">
       <p class="menu-hint" id="menu-hint">
-        showing <strong id="hint-category">matcha</strong> ·
-        <strong id="hint-milk">whole</strong> milk ·
-        <strong id="hint-temp">hot</strong>
+        showing <strong id="hint-category">matcha</strong><span id="hint-drink-ctx"> · <strong id="hint-milk">whole</strong> milk · <strong id="hint-temp">hot</strong></span>
       </p>
       <ul class="menu-list" id="menu-list"></ul>
       <p class="menu-wip hidden" id="menu-wip">

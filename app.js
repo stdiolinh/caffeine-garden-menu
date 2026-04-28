@@ -34,13 +34,21 @@
   const menuWipEl = document.getElementById("menu-wip");
   const menuHintEl = document.getElementById("menu-hint");
   const hintCategoryEl = document.getElementById("hint-category");
+  const hintDrinkCtxEl = document.getElementById("hint-drink-ctx");
   const hintMilkEl = document.getElementById("hint-milk");
   const hintTempEl = document.getElementById("hint-temp");
+  const pinBarEl = document.getElementById("pin-bar");
 
   function renderHint() {
     hintCategoryEl.textContent = activeFilter;
     hintMilkEl.textContent = milk;
     hintTempEl.textContent = temp;
+
+    const treats = activeFilter === "treats";
+    hintDrinkCtxEl.classList.toggle("hidden", treats);
+    hintDrinkCtxEl.setAttribute("aria-hidden", treats ? "true" : "false");
+    pinBarEl.classList.toggle("hidden", treats);
+    pinBarEl.setAttribute("aria-hidden", treats ? "true" : "false");
   }
 
   function renderMenu() {
